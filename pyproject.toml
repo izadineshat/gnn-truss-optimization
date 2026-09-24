@@ -1,0 +1,105 @@
+[project]
+name = "trussgnn"
+version = "0.1.0"
+description = "GNN-driven structural optimization of 2D trusses (learning project, Persian roadmap in amozeshi/roadmap.md)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "gnn-truss-optimization contributors" }]
+keywords = ["truss", "fem", "gnn", "structural-optimization", "graph-neural-networks"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+# Machine-learning stack arrives at roadmap step 7. `uv sync --extra ml` when needed.
+ml = [
+    "torch>=2.2",
+    "torch-geometric>=2.5",
+    "scikit-learn>=1.4",
+]
+docs = ["mkdocs>=1.6", "mkdocs-material>=9.5"]
+all = ["trussgnn[ml,docs]"]
+
+# Development tooling: installed by default with `uv sync` (uv's default dev group).
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+]
+
+[project.scripts]
+truss-fem = "trussgnn.cli:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trussgnn"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers -p no:cacheprovider"
+markers = ["slow: long-running integration tests (deselect with '-m \"not slow\"')"]
+
+[tool.coverage.run]
+source = ["trussgnn"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "if TYPE_CHECKING:",
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+# Educational scripts keep their Persian comments and are intentionally left as-is.
+extend-exclude = ["amozeshi", "week1", "single_bar_exercise", "truss_analysis.py", "truss_plot.py", "plot_triangle_truss.py", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "RUF"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]
+fixable = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["W291"]
+
+[tool.mypy]
+# Matches .python-version and the uv-managed dev interpreter. numpy>=2.5 ships
+# PEP 695 stub syntax, which mypy can only parse for 3.12+ targets.
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+exclude = ["amozeshi", "week1", "single_bar_exercise"]
+mypy_path = "src"
+ignore_missing_imports = true
+
+[tool.coverage.paths]
+source = ["src"]

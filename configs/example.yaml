@@ -1,0 +1,46 @@
+# Example experiment configuration for future training/optimization runs.
+# Loaded by trussgnn with a plain YAML/TOML parser — keep it dependency-free.
+# `uv sync --extra ml` before using the training section (roadmap step 7).
+
+project:
+  name: baseline-truss-surrogate
+  seed: 42
+
+geometry:
+  # canonical tutorial truss
+  nodes: [[0.0, 0.0], [4.0, 0.0], [2.0, 3.0]]
+  elements: [[0, 1], [1, 2], [2, 0]]
+  fixed_dofs: [0, 1, 2, 3]
+
+material:
+  elasticity: 2.0e11   # Pa, steel
+  areas: [0.01, 0.01, 0.01]  # m^2
+
+load_case:
+  node: 2
+  force: [0.0, -100000.0]  # N
+
+dataset:
+  num_samples: 1000
+  area_range: [0.0005, 0.01]
+  node_jitter: 0.15
+  output: data/processed/triangle_dataset.npz
+
+model:
+  name: gcn            # gcn | sage | gat | mpnn
+  hidden_dim: 64
+  num_layers: 3
+  target: stress       # stress | displacement
+
+training:
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1.0e-3
+  val_fraction: 0.2
+
+optimization:
+  objective: minimize_weight
+  stress_limit_pa: 2.5e8
+  displacement_limit_m: 0.01
+  area_bounds: [0.0005, 0.01]
+  algorithm: ga        # ga | pso | gradient

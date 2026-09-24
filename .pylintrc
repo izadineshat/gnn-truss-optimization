@@ -1,0 +1,8 @@
+[MASTER]
+good-names = i,j,k,m,n,e,x,y,u,v,f,d,r,a,E,A,L,N,K
+
+[MESSAGES CONTROL]
+disable=duplicate-code,import-error,fixme,too-few-public-methods
+
+[DESIGN]
+max-line-length=100

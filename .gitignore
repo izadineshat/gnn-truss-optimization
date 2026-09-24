@@ -56,3 +56,23 @@ desktop.ini
 !.env.example
 *.local.yaml
 .credentials*
+
+# ---- uv ----
+.uv-cache/
+
+# ---- trussgnn project data ----
+data/processed/
+data/interim/
+*.npz
+*.npy
+
+# ---- generated figures ----
+figures/
+*.png
+!docs/**/*.png
+
+# ---- uv-managed interpreter downloaded into the workspace ----
+.uv-python/
+
+# ---- pytest's atomically-created temp cache dirs ----
+pytest-cache-files-*/
