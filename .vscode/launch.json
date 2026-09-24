@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File (Run / Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: truss_week1_review.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/truss_week1_review.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

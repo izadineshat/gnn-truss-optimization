@@ -1,0 +1,30 @@
+import numpy as np
+
+# تعریف بردار نیروی وارد بر گره (Fx, Fy)
+F = np.array([50.0, -20.0])  # نیروی وارد بر گره‌ها
+
+# فرض می‌کنیم می‌خواهیم بارگذاری روی این گره را ۳ برابر کنیم
+F_new = 3 * F
+print("New force vector:", F_new)
+
+# ۱. تعریف مختصات گره اول و دوم
+x1, y1 = 0.0, 0.0  # گره اول: (x1, y1)
+x2, y2 = 3.0, 4.0  # گره دوم: (x2, y2)
+
+# ۲. محاسبه بردار فاصله بین دو گره
+dx = x2 - x1
+dy = y2 - y1
+delta = np.array([dx, dy])
+
+print("Delta vector (node2 - node1):", delta)
+
+# طول عضو
+L = np.sqrt(dx**2 + dy**2)
+print("Length of the member (L):", L)
+
+# محاسبه کسینوس‌های هادی جهت میله
+c = dx / L   # cos(theta)
+s = dy / L   # sin(theta)
+
+print("cos(theta):", c)
+print("sin(theta):", s)
