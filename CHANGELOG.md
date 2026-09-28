@@ -17,7 +17,7 @@
 - دستور CLI: `truss-fem` (اجرای مسئلهی نمونه و گزارش نیرو/تنش/واکنش).
 - مستندات دوزبانه: `README.md` (فارسی)، `README.en.md`، `docs/architecture.md`، `CHANGELOG.md`.
 - پیکربندی VS Code (`settings.json`, `launch.json`, `extensions.json`) و `configs/example.yaml`.
-- CI با GitHub Actions (تست، lint، type-check) روی Python 3.10–3.12 و Windows/Ubuntu.
+- CI با GitHub Actions (تست، lint، type-check) روی Python 3.10–3.12 و Windows/Ubuntu. *(پیکربندی آن فعلاً در `scripts/ci.yml.backup` نگهداری میشود و پس از فعال‌سازی دوباره در `.github/workflows/` قرار می‌گیرد.)*
 
 ### تغییر دادهشده
 - `.gitignore` تکمیل شد (کش uv، دادهها، شکلها).
@@ -27,4 +27,4 @@
 - اسکریپتهای آموزشی (`week1/`, `single_bar_exercise/`, `amozeshi/`, فایلهای ریشه) دستنخورده
   باقی ماندند تا روند یادگیری حفظ شود؛ پکیج نسخهی مهندسیشدهی همان مفاهیم است.
 
-[0.1.0]: https://github.com/USER/gnn-truss-optimization/releases/tag/v0.1.0
+[0.1.0]: https://github.com/izadineshat/gnn-truss-optimization/releases/tag/v0.1.0

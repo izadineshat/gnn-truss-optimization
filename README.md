@@ -1,8 +1,8 @@
 # 🏗️ بهینهسازی خرپا با شبکههای عصبی گرافی (GNN)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/USER/gnn-truss-optimization/ci.yml?branch=main&label=CI&logo=github)](https://github.com/USER/gnn-truss-optimization/actions)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Licence](https://img.shields.io/badge/Licence-MIT-green)](LICENSE)
+[![FEM](https://img.shields.io/badge/FEM-Tests-yellow)](https://github.com/izadineshat/gnn-truss-optimization)
 
 > یک پروژهی آموزشی **قدمبهقدم** برای اینکه به کامپیوتر یاد بدهیم شکل و مقطع اعضای یک خرپا را
 > طوری طراحی کند که **سبکترین وزن** را داشته باشد ولی **زیر بار خراب نشود**.

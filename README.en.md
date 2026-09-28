@@ -1,8 +1,8 @@
 # 🏗️ GNN-Driven Truss Optimization
 
-[![CI](https://img.shields.io/github/actions/workflow/status/USER/gnn-truss-optimization/ci.yml?branch=main&label=CI&logo=github)](https://github.com/USER/gnn-truss-optimization/actions)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Licence](https://img.shields.io/badge/Licence-MIT-green)](LICENSE)
+[![FEM](https://img.shields.io/badge/FEM-Tests-yellow)](https://github.com/izadineshat/gnn-truss-optimization)
 
 > A step-by-step **learning project** that teaches a computer to design the shape and
 > cross-sections of a truss so that it is **as light as possible while still carrying its load**.
