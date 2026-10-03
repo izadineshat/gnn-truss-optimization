@@ -76,3 +76,6 @@ figures/
 
 # ---- pytest's atomically-created temp cache dirs ----
 pytest-cache-files-*/
+
+# ---- Windows ACL recovery artifacts (local machine only) ----
+.acl-recovery/
